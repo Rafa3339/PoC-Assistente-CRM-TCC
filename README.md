@@ -115,7 +115,7 @@ json body{
   "mensagem": "Qual o status do processo 12345?"
 }
 ```
-![Processo permitido - Bruno API](imgs\proc_perm.PNG)
+![Processo permitido - Bruno API](imgs/proc_perm.PNG)
 
 ### 2. Responsável pelo processo
 
@@ -129,7 +129,7 @@ json body{
   "mensagem": "Quem e o responsavel pelo processo 12345?"
 }
 ```
-![Responsavel Processo - Bruno API](imgs\resp_proc.PNG)
+![Responsavel Processo - Bruno API](imgs/resp_proc.PNG)
 
 ### 3. Dados do cliente
 
@@ -143,7 +143,7 @@ json body{
   "mensagem": "Qual o telefone do cliente Joao Silva?"
 }
 ```
-![Dados cliente - Bruno API](imgs\tele_clien.PNG)
+![Dados cliente - Bruno API](imgs/tele_clien.PNG)
 
 ### 4. Processos de uma cliente
 
@@ -157,7 +157,7 @@ json body{
   "mensagem": "Quais processos sao do cliente Maria Souza?"
 }
 ```
-![Processos cliente - Bruno API](imgs\proc_clien.PNG)
+![Processos cliente - Bruno API](imgs/proc_clien.PNG)
 
 ### 5. Bloqueio por permissão
 
@@ -171,7 +171,7 @@ json body{
   "mensagem": "Qual o status do processo 54321?"
 }
 ```
-![Bloqueio permissão - Bruno API](imgs\proc_nega.PNG)
+![Bloqueio permissão - Bruno API](imgs/proc_nega.PNG)
 
 ### 6. Intenção não reconhecida
 
@@ -185,7 +185,7 @@ json body{
   "mensagem": "Bom dia?"
 }
 ```
-![Intenção não reconhecida - Bruno API](imgs\inten_nao_recon.PNG)
+![Intenção não reconhecida - Bruno API](imgs/inten_nao_recon.PNG)
 
 ## Estrutura
 
