@@ -37,20 +37,6 @@ A API fica disponivel em:
 http://localhost:8080
 ```
 
-Console H2:
-
-```text
-http://localhost:8080/h2-console
-```
-
-Credenciais do H2:
-
-```text
-JDBC URL: jdbc:h2:mem:crm_poc
-User: sa
-Password:
-```
-
 ## Endpoints
 
 ### Consulta por texto
@@ -115,54 +101,91 @@ curl -X POST http://localhost:8080/api/webhook/whatsapp \
 ```
 
 ## Cenarios de teste
+### Testes feitos utilizando [Bruno API](https://www.usebruno.com/)
 
 ### 1. Status do processo permitido
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"advogado_1\",\"perfil\":\"ADVOGADO\",\"mensagem\":\"Qual o status do processo 12345?\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "advogado_1",
+  "perfil": "ADVOGADO",
+  "mensagem": "Qual o status do processo 12345?"
+}
 ```
+![Processo permitido - Bruno API](imgs\proc_perm.PNG)
 
-### 2. Responsavel pelo processo
+### 2. Responsável pelo processo
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"advogado_1\",\"perfil\":\"ADVOGADO\",\"mensagem\":\"Quem e o responsavel pelo processo 12345?\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "advogado_1",
+  "perfil": "ADVOGADO",
+  "mensagem": "Quem e o responsavel pelo processo 12345?"
+}
 ```
+![Responsavel Processo - Bruno API](imgs\resp_proc.PNG)
 
 ### 3. Dados do cliente
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"advogado_1\",\"perfil\":\"ADVOGADO\",\"mensagem\":\"Qual o telefone do cliente Joao Silva?\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "advogado_1",
+  "perfil": "ADVOGADO",
+  "mensagem": "Qual o telefone do cliente Joao Silva?"
+}
 ```
+![Dados cliente - Bruno API](imgs\tele_clien.PNG)
 
 ### 4. Processos de uma cliente
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"advogado_1\",\"perfil\":\"ADVOGADO\",\"mensagem\":\"Quais processos sao do cliente Maria Souza?\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "advogado_1",
+  "perfil": "ADVOGADO",
+  "mensagem": "Quais processos sao do cliente Maria Souza?"
+}
 ```
+![Processos cliente - Bruno API](imgs\proc_clien.PNG)
 
-### 5. Bloqueio por permissao
+### 5. Bloqueio por permissão
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"assistente_1\",\"perfil\":\"ASSISTENTE\",\"mensagem\":\"Qual o status do processo 54321?\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "assistente_1",
+  "perfil": "ASSISTENTE",
+  "mensagem": "Qual o status do processo 54321?"
+}
 ```
+![Bloqueio permissão - Bruno API](imgs\proc_nega.PNG)
 
-### 6. Intencao nao reconhecida
+### 6. Intenção não reconhecida
 
 ```bash
-curl -X POST http://localhost:8080/api/consulta \
-  -H "Content-Type: application/json" \
-  -d "{\"usuario\":\"advogado_1\",\"perfil\":\"ADVOGADO\",\"mensagem\":\"Me diga alguma coisa aleatoria\"}"
+POST http://localhost:8080/api/consulta
+"Content-Type: application/json"
+json body{
+{
+  "usuario": "assistente_1",
+  "perfil": "ASSISTENTE",
+  "mensagem": "Bom dia?"
+}
 ```
+![Intenção não reconhecida - Bruno API](imgs\inten_nao_recon.PNG)
 
 ## Estrutura
 
